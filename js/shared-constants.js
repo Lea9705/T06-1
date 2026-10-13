@@ -14,6 +14,22 @@ const bodyBackgroundColor = "#fbf2e8"; // matches the cream page background in b
 const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
 
+/******************************************/
+/*  T06-2: scatterplot constants           */
+/******************************************/
+// innerChart for the scatterplot (kept separate from the histogram's innerChart).
+// "let" because drawScatterplot gives it a value later.
+let innerChartS;
+
+// Scales for the scatterplot (S = scatterplot)
+const xScaleS = d3.scaleLinear();
+const yScaleS = d3.scaleLinear();
+const colorScale = d3.scaleOrdinal(); // one hue per screen technology
+
+// Size of the tooltip
+const tooltipWidth = 110;
+const tooltipHeight = 36;
+
 // Create a bin generator using d3.bin
 const binGenerator = d3.bin()
   .value(d => d.energyConsumption); // accessor for energyConsumption

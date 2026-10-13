@@ -12,7 +12,12 @@ d3.csv("data/Ex6_TVdata.csv", d => ({
 
   // Call functions after data is loaded
   drawHistogram(data);
+  drawScatterplot(data);
   populateFilters(data);
+
+  // T06-2: tooltip for the scatterplot
+  createTooltip();
+  handleMouseEvents();
 }).catch(error => {
   console.error("Error loading the CSV file:", error);
 });
