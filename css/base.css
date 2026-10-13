@@ -1,0 +1,86 @@
+/* Base page styles – colours follow the Wattwise palette */
+:root {
+  --ink: #282116;
+  --amber: #eba746;
+  --amber-dark: #b07d34;
+  --brown: #7d6744;
+  --cream: #f8e8a5;
+  --surface: #fffdf8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: var(--surface);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--ink);
+  border-bottom: 3px solid var(--amber);
+  padding: 1em 1.25em;
+}
+
+header h1 {
+  margin: 0;
+  color: var(--cream);
+  font-size: 1.6rem;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5em 1.25em 3em;
+}
+
+h2 { margin: 0 0 0.3em; }
+
+p { max-width: 65ch; }
+
+a { color: var(--amber-dark); }
+
+footer {
+  background: var(--ink);
+  color: var(--cream);
+  text-align: center;
+  padding: 0.8em;
+  font-size: 0.85rem;
+}
+
+footer p { margin: 0 auto; }
+
+/* ---------- Filter buttons ---------- */
+#filters_screen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 1em 0;
+}
+
+.filter {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.4em 1.2em;
+  border: 2px solid var(--brown);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--brown);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.filter:hover { background: var(--cream); }
+
+.filter:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* the button that is currently selected */
+.filter.active {
+  background: var(--brown);
+  color: #fff;
+}
