@@ -1,86 +1,106 @@
-/* Base page styles – colours follow the Wattwise palette */
-:root {
-  --ink: #282116;
-  --amber: #eba746;
-  --amber-dark: #b07d34;
-  --brown: #7d6744;
-  --cream: #f8e8a5;
-  --surface: #fffdf8;
+/* Main site stylesheet — layout, typography and theme colors */
+:root{
+  --accent: #c65a20; /* warm orange */
+  --accent-dark: #a14812;
+  --bg: #fbf2e8; /* light cream */
+  --surface: #ffffff;
+  --text: #5a3e2b; /* dark brown */
+  --muted: #6b5e53;
+  --radius: 8px;
 }
 
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: "Segoe UI", Roboto, sans-serif;
-  background: var(--surface);
-  color: var(--ink);
-  line-height: 1.6;
+/* Page reset and basic typography */
+html,body{
+  height:100%;
+}
+body{
+  margin:0;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
 }
 
-header {
-  background: var(--ink);
-  border-bottom: 3px solid var(--amber);
-  padding: 1em 1.25em;
+a{ color: var(--accent-dark); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* Header */
+header{
+  background:var(--accent);
+  color:white;
+  padding:22px 24px;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.06);
+}
+header h1{
+  margin:0;
+  font-size:28px;
+  font-weight:700;
 }
 
-header h1 {
-  margin: 0;
-  color: var(--cream);
-  font-size: 1.6rem;
+/* Main content area */
+main{ padding:28px 24px; }
+main > div{ max-width:1000px; margin:0 auto; }
+
+h1,h2,h3{
+  color:var(--text);
+  margin:0 0 12px 0;
+}
+h1{ font-size:28px; }
+h2{ font-size:22px; }
+h3{ font-size:18px; }
+
+p{ margin:0 0 16px 0; color: #3f2f28; }
+
+/* Filters/buttons */
+#filters_screen{ display:flex; gap:12px; flex-wrap:wrap; margin:14px 0 18px 0; }
+
+/* Filter buttons — use classes so we can toggle active state */
+#filters_screen .filter{
+  border: none;
+  background: var(--accent); /* dark orange by default */
+  color: white;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.08);
 }
 
-main {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1.5em 1.25em 3em;
+/* Active filter: pale background, dark text */
+#filters_screen .filter.active{
+  background: #f3d9b9; /* pale/light orange */
+  color: var(--text);
 }
 
-h2 { margin: 0 0 0.3em; }
+#filters_screen .filter:focus{ outline:2px solid rgba(0,0,0,0.08); }
 
-p { max-width: 65ch; }
-
-a { color: var(--amber-dark); }
-
-footer {
-  background: var(--ink);
-  color: var(--cream);
-  text-align: center;
-  padding: 0.8em;
-  font-size: 0.85rem;
+/* Chart container - keep a little spacing */
+.responsive-svg-container{
+  width:100%;
+  max-width:1000px;
+  margin-bottom:28px;
 }
 
-footer p { margin: 0 auto; }
+/* Data source note */
+.body{ margin-top:10px; color:#3f2f28; }
+.body a{ color:var(--accent-dark); font-weight:600; }
 
-/* ---------- Filter buttons ---------- */
-#filters_screen {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin: 1em 0;
+/* Footer */
+footer{
+  background: #5a3e2b; /* dark brown */
+  color: #ffffff;
+  padding:14px 24px;
+  margin-top:24px;
 }
+footer p{ margin:0; text-align:center; font-size:14px; }
 
-.filter {
-  font: inherit;
-  font-weight: 600;
-  padding: 0.4em 1.2em;
-  border: 2px solid var(--brown);
-  border-radius: 6px;
-  background: var(--surface);
-  color: var(--brown);
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
-}
+/* Small utility */
+.lead{ font-size:16px; color:#4a362e; }
 
-.filter:hover { background: var(--cream); }
-
-.filter:focus-visible {
-  outline: 3px solid var(--amber);
-  outline-offset: 2px;
-}
-
-/* the button that is currently selected */
-.filter.active {
-  background: var(--brown);
-  color: #fff;
+@media screen and (max-width:596px){
+  header h1{ font-size:20px; }
+  main{ padding:18px 14px; }
+  #filters_screen button{ padding:8px 10px; }
 }

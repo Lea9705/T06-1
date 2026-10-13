@@ -7,8 +7,8 @@ const innerHeight = height - margin.top - margin.bottom;
 
 /*  Make the colours accessible globally  */
 /******************************************/
-const barColor = "#7d6744";            // Wattwise brown
-const bodyBackgroundColor = "#fffdf8"; // matches the page background (gap between bars)
+const barColor = "#606464";            // grey bars (matches the example)
+const bodyBackgroundColor = "#fbf2e8"; // matches the cream page background in base.css (gap between bars)
 
 // Set up the scales
 const xScale = d3.scaleLinear();
